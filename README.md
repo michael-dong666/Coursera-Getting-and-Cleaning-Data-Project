@@ -11,3 +11,6 @@ This is a repo for my Coursera Getting and Cleaning Data Project. The data are c
 3. Open RStudio and set your working directory to that folder.
 4. Run the `run_analysis.R` script using `source("run_analysis.R")`.
 5. A new file named `sec_tidy_dataset.txt` will automatically generate in your folder.
+
+## Link of the data
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
