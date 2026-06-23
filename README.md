@@ -1,5 +1,5 @@
 # Coursera-Getting-and-Cleaning-Data-Project
-This is a repo for my Coursera Getting and Cleaning Data Project. The data are collected from the accelerometers from the Samsung Galaxy S smartphone. The result yielded is the average value of each variable for each activity listed.
+This is a repo for my Coursera Getting and Cleaning Data Project. The data is collected from the accelerometers from the Samsung Galaxy S smartphone. The result yielded is the average value of each variable for each activity listed.
 ## Files in this repo
 *`run_analysis.R`: The R script used to load, merge, clean, and summarize the data.
 *`CodeBook.md`: A document that describes the variables, the data, and the transformations performed to clean up the data.
