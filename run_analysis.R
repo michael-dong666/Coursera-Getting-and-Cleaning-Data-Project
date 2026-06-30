@@ -5,9 +5,9 @@ library(readr)
 
 # 1. Get the Metadata
 # Load the feature and activity names first
-col_info <- read_table("features.txt", col_names = FALSE)
-all_col_names <- as.character(col_info$X2)
-activities <- read_table("activity_labels.txt", col_names = c("act_id", "activity"))
+col_info <- read.table("features.txt", stringsAsFactors = FALSE)
+all_col_names <- col_info$V2
+activities <- read.table("activity_labels.txt", col.names = c("act_id", "activity"), stringsAsFactors = FALSE)
 
 # 2. Combine the Train Data
 train_y <- read_table("train/y_train.txt", col_names = "act_id")
@@ -31,11 +31,18 @@ combined <- rbind(full_train, full_test)
 
 # 5. Select Out the Mean and Standard Deviation Columns
 # Keep subject, act_id, and columns with mean() or std() in the name only
-filtered <- combined %>% select(subject, act_id, contains("mean()"), contains("std()"))
+filtered <- combined %>%
+  select(subject, act_id, contains("mean"), contains("std"))
+
+# Just a quick check to see if the number of columns is correct; it should be 88
+ncol(filtered)
 
 # 6. Add Easy-to-understand labels for Activities
 # Get the activity table to have access to names like WALKING
-labeled <- filtered %>% left_join(activities, by = "act_id") %>% select(subject, activity, everything(), -act_id)
+labeled <- filtered %>%
+  left_join(activities, by = "act_id") %>%
+  select(subject, activity, everything()) %>%
+  select(-act_id)
 
 # 7. Clean up Variable Names
 # Replace the prefixes with human-readable words
